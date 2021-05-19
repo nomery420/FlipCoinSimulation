@@ -1,19 +1,33 @@
 #! /bin/bash
-
 heads=0
 tails=0
+limit=21
 
-for (( counter=0; counter<30; counter++ ))
-do
-	flipcoin=$(( RANDOM%2 ))
+ while [ $heads -lt $limit -a $tails -lt $limit ]
+ do
+        flipcoin=$(( RANDOM%2 ))
 
-	if [ $flipcoin -eq 0 ]
+        if [ $flipcoin -eq 0 ]
 
-	then
-		heads=$(( heads+1 ))
-	else
-		tails=$(( tails+1 ))
-	fi
+        then
+                heads=$(( heads+1 ))
+        else
+                tails=$(( tails+1 ))
+        fi
 done
-echo "Number of times Heads wins is : " $heads
-echo "Number of times Tails wins is : " $tails 
+               if [ $heads -eq $limit ]
+                then
+                        echo "!Heads win by $heads Times..."
+
+                elif [ $tails -eq $limit ]
+                then
+                        echo "!Tails wins by $tails Times..."
+
+                elif [ $heads -eq $tails ]
+                then
+                        echo "It's a Tie!"
+                fi
+
+
+
+
