@@ -23,8 +23,7 @@ done
                 then
                         echo "!Tails wins by $tails Times..."
 
-                elif [ $heads -eq $tails ]
-                then
+                else
                         echo "It's a Tie!"
                 fi
 
